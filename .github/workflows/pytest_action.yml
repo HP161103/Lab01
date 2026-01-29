@@ -1,15 +1,21 @@
 name: Testing with Pytest
-
+run-name: Pytest
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - 'releases/**'
+  label:
+    types:
+      - created
+  issues:
+    types:
+      - opened
+      - labeled
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -28,7 +34,7 @@ jobs:
 
     - name: Upload test results
       if: always()
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: test-results
         path: pytest-report.xml
