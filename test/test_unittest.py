@@ -36,7 +36,41 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.fun4(-1, -1, -1), -3)
         self.assertEqual(calculator.fun4(-1, -1, 100), 98)
 
+    def test_fun5(self):
+        self.assertEqual(calculator.fun5(10, 2), 5.0)
+        self.assertEqual(calculator.fun5(9, 3), 3.0)
+        self.assertEqual(calculator.fun5(-10, 2), -5.0)
+        self.assertEqual(calculator.fun5(7, 2), 3.5)
+        
+        # Test division by zero
+        with self.assertRaises(ValueError):
+            calculator.fun5(5, 0)
 
+    def test_fun6(self):
+        self.assertEqual(calculator.fun6(2, 3), 8)
+        self.assertEqual(calculator.fun6(5, 2), 25)
+        self.assertEqual(calculator.fun6(10, 0), 1)
+        self.assertEqual(calculator.fun6(2, -1), 0.5)
+
+    def test_fun7(self):
+        self.assertEqual(calculator.fun7(10, 3), 1)
+        self.assertEqual(calculator.fun7(15, 4), 3)
+        self.assertEqual(calculator.fun7(20, 6), 2)
+        
+        # Test modulo by zero
+        with self.assertRaises(ValueError):
+            calculator.fun7(5, 0)
+
+    def test_fun8(self):
+        self.assertEqual(calculator.fun8(0), 1)
+        self.assertEqual(calculator.fun8(1), 1)
+        self.assertEqual(calculator.fun8(5), 120)
+        self.assertEqual(calculator.fun8(4), 24)
+        self.assertEqual(calculator.fun8(3), 6)
+        
+        # Test negative factorial
+        with self.assertRaises(ValueError):
+            calculator.fun8(-5)
 
 if __name__ == '__main__':
     unittest.main()
