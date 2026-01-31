@@ -1,4 +1,4 @@
-# Lab 01 - MLOps CI/CD Pipeline
+# Lab 01 - Github_Labs
 
 **Author:** Heet Patel  
 **Course:** MLOps (IE-7374)  
